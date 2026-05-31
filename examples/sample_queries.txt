@@ -1,0 +1,44 @@
+# Sample NL2Code Queries
+# Use these as examples for generating code in different languages
+
+# Basic Operations
+Sort a list of numbers in ascending order
+Read a file and count the number of words in it
+Calculate the factorial of a number using recursion
+Find the largest element in an array
+
+# Data Structures
+Implement a stack using a linked list with push, pop, and peek operations
+Create a binary search tree with insert, search, and delete methods
+Implement a queue using two stacks
+Create a hash map with put, get, and remove operations
+
+# Algorithms
+Implement binary search on a sorted array
+Sort an array using merge sort algorithm
+Find the shortest path using Dijkstra's algorithm
+Implement depth-first search on a graph
+
+# String Operations
+Check if a string is a palindrome
+Find all permutations of a string
+Implement a simple regular expression matcher
+Count the frequency of each character in a string
+
+# File Operations
+Read a CSV file and display it as a formatted table
+Write data to a JSON file
+Read a text file and find the most common word
+Merge multiple text files into one
+
+# Math & Numbers
+Generate Fibonacci numbers up to N
+Check if a number is prime
+Convert between decimal, binary, and hexadecimal
+Implement matrix multiplication
+
+# Practical Applications
+Create a simple calculator with basic operations
+Build a simple to-do list manager with add, remove, and display
+Create a basic student grade management system
+Implement a simple password generator with configurable length and complexity
