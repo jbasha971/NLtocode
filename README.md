@@ -29,8 +29,8 @@
 
 ```bash
 # Clone the repo
-git clone <repo-url>
-cd nl2code
+git clone https://github.com/jbasha971/NLtocode.git
+cd NLtocode
 
 # Install Python dependencies
 pip install -r requirements.txt
@@ -41,17 +41,17 @@ pip install -e .
 
 ### 2. Install Ollama (Recommended)
 
-Ollama runs AI models locally for free. Install it from [ollama.com](https://ollama.com):
+Ollama runs AI models locally for free. Install it from [ollama.com/download](https://ollama.com/download):
 
+- **Windows**: Download and run the installer from [ollama.com/download](https://ollama.com/download). Ollama runs as a background service automatically.
+- **Linux/macOS**:
+  ```bash
+  curl -fsSL https://ollama.com/install.sh | sh
+  ```
+
+After installing, pull the code generation model (~1 GB, one-time download):
 ```bash
-# Linux/macOS
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Pull the code generation model (~1 GB)
 ollama pull qwen2.5-coder:1.5b
-
-# Start the server (if not already running)
-ollama serve
 ```
 
 > **Note**: If you skip Ollama, the app will automatically use HuggingFace's free API (requires internet).
@@ -60,7 +60,7 @@ ollama serve
 
 **Web UI (recommended):**
 ```bash
-streamlit run nl2code/app.py
+python -m streamlit run nl2code/app.py
 ```
 Opens at `http://localhost:8501`
 
@@ -78,6 +78,57 @@ nl2code -t "implement binary search" -l java -o BinarySearch.java
 # Check backend status
 nl2code --status
 ```
+
+---
+
+## Running in VS Code (Step-by-Step)
+
+### Prerequisites
+
+1. Install **Python 3.9+** from [python.org](https://www.python.org/downloads/)
+2. Install **VS Code** from [code.visualstudio.com](https://code.visualstudio.com/)
+3. Install the **Python extension** in VS Code (Extensions tab → search "Python" → install by Microsoft)
+4. Install **Ollama** from [ollama.com/download](https://ollama.com/download)
+
+### Setup
+
+1. Clone/download this repo and open the folder in VS Code (**File → Open Folder**)
+2. Open the terminal in VS Code: **Terminal → New Terminal** (or press `` Ctrl+` ``)
+3. Run these commands:
+
+```powershell
+# Install dependencies
+pip install -r requirements.txt
+pip install -e .
+
+# Pull the AI model (one-time, ~1 GB)
+ollama pull qwen2.5-coder:1.5b
+```
+
+### Run the Web UI
+
+```powershell
+python -m streamlit run nl2code/app.py
+```
+
+This opens the web app at `http://localhost:8501` in your browser.
+
+### Run the CLI
+
+```powershell
+python -m nl2code.cli -t "sort a list of numbers" -l python
+python -m nl2code.cli --interactive
+```
+
+### Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| `ollama` not recognized | Restart VS Code after installing Ollama |
+| `streamlit` not recognized | Use `python -m streamlit run nl2code/app.py` instead |
+| `pip` not recognized | Use `python -m pip install -r requirements.txt` |
+| "bind: address already in use" on `ollama serve` | Ollama is already running in the background (Windows does this automatically). Just skip `ollama serve` |
+| Slow first code generation | Normal on CPU — first request takes 10-30s, subsequent ones are faster |
 
 ---
 
